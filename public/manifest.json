@@ -1,0 +1,29 @@
+{
+  "manifest_version": 2,
+  "name": "Meeco Tools",
+  "description": "미코(https://meeco.kr)를 데스크탑에서 더 사용하기 쉽게 도와줍니다.",
+  "homepage_url": "https://github.com/meeco-attendance/meeco-tools",
+  "version": "1.3.0",
+  "icons": {
+    "48": "icon.png",
+    "96": "icon@2x.png",
+    "128": "icon@chrome.png"
+  },
+  "browser_action": {
+    "default_icon": {
+      "48": "icon.png",
+      "96": "icon@2x.png",
+      "128": "icon@chrome.png"
+    },
+    "default_title": "Meeco Tools",
+    "default_popup": "index.html"
+  },
+  "permissions": ["storage"],
+  "content_security_policy": "script-src 'self' 'sha256-WLsZ5JW99y31ySryz9bEmE+M63yZbYXuOldnFCts8CI='; object-src 'self'",
+  "content_scripts": [
+    {
+      "matches": ["*://meeco.kr/*", "*://*.meeco.kr/*"],
+      "js": ["./mc-at.js", "./mc-hotkeys.js", "./mc-lrs.js"]
+    }
+  ]
+}
